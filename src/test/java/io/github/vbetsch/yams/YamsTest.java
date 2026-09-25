@@ -42,4 +42,40 @@ class YamsTest {
         // Assert
         assertEquals(50, result);
     }
+
+    @Test
+    void yams_return50Points_whenGivenFiveDicesThree() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 3, 3, 3), CategoryEnum.YAMS);
+
+        // Assert
+        assertEquals(50, result);
+    }
+
+    @Test
+    void yams_return0Points_whenGivenCombinationWithDuplicates() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 1, 2, 2, 3), CategoryEnum.YAMS);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    void yams_return0Points_whenGivenCombinationWithoutDuplicates() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 4, 5, 6, 3), CategoryEnum.YAMS);
+
+        // Assert
+        assertEquals(0, result);
+    }
 }
