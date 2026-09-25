@@ -80,7 +80,7 @@ class YamsTest {
     }
 
     @Test
-    void aces_return3Points_whenGivenCombinationWithThreeAces() {
+    void aces_return3Points_whenGivenCombinationWithThreeDicesAces() {
         // Arrange
         Yams yams = new Yams();
 
