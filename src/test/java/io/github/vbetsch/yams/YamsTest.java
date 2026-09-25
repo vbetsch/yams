@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class YamsTest {
+class YamsTest {
     @Test
     void should_return40Points() {
         // Arrange
