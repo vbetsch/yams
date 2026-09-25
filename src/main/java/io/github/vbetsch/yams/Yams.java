@@ -25,18 +25,10 @@ public class Yams {
         }
     }
 
-    private int handleAcesScore(List<Integer> combination) {
+    private int handleTopPartScores(List<Integer> combination, int target) {
         return combination
                 .stream()
-                .filter(dice -> dice == 1)
-                .mapToInt(Integer::intValue)
-                .sum();
-    }
-
-    private int handleFivesScore(List<Integer> combination) {
-        return combination
-                .stream()
-                .filter(dice -> dice == 5)
+                .filter(dice -> dice == target)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
@@ -45,8 +37,8 @@ public class Yams {
         return switch (category) {
             case CategoryEnum.CHANCE -> this.handleChanceScore(combination);
             case CategoryEnum.YAMS -> this.handleYamsScore(combination);
-            case CategoryEnum.ACES -> this.handleAcesScore(combination);
-            case CategoryEnum.FIVES -> this.handleFivesScore(combination);
+            case CategoryEnum.ACES -> this.handleTopPartScores(combination, 1);
+            case CategoryEnum.FIVES -> this.handleTopPartScores(combination, 5);
             default -> 1000;
         };
     }
