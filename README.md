@@ -27,8 +27,7 @@ The following categories exists:
 
 -[ ] Ones, Twos, Threes, Fours, Fives, Sixes: The player scores the sum of the dice that reads one, two, three, four,
  five or six, respectively. For example, 1, 1, 2, 4, 4 placed on “fours” gives 8 points.
--[ ] Pair: The player scores the sum of the two highest matching dice. For example, 3, 3, 3, 4, 4 placed on “pair” gives
- 8.
+-[ ] Pair: The player scores the sum of the two highest matching dice. For example, 3, 3, 3, 4, 4 placed on “pair” gives 8.
 -[ ] Two pairs: If there are two pairs of dice with the same number, the player scores the sum of these dice. If not,
  the player scores 0. For example, 1, 1, 2, 3, 3 placed on “two pairs” gives 8.
 -[ ] Three of a kind: If there are three dice with the same number, the player scores the sum of these dice. Otherwise,
