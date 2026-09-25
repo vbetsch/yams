@@ -10,7 +10,7 @@ public class YamsTest {
     @Test
     void should_return40Points() {
         // Arrange
-        Yams yams  = new Yams();
+        Yams yams = new Yams();
 
         // Act
         int result = yams.computeScore(List.of(1, 2, 3, 4, 5), "LARGE_STRAIGHT");
