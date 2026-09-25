@@ -13,11 +13,11 @@ public class Yams {
     }
 
     private int handleYamsScore(List<Integer> combination) {
-        IntStream distinctedCombination = combination
+        IntStream reducedCombination = combination
                 .stream()
                 .mapToInt(Integer::intValue)
                 .distinct();
-        if (distinctedCombination.count() == 1) {
+        if (reducedCombination.count() == 1) {
             IO.println("ITS A YAMS!!! GOOD GAME !!!");
             return 50;
         } else {
