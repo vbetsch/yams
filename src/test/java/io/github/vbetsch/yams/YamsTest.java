@@ -30,4 +30,16 @@ class YamsTest {
         // Assert
         assertEquals(16, result);
     }
+
+    @Test
+    void yams_return50Points_whenGivenLargeStraight() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.YAMS);
+
+        // Assert
+        assertEquals(50, result);
+    }
 }
