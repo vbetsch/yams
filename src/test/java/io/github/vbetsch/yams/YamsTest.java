@@ -92,7 +92,43 @@ class YamsTest {
     }
 
     @Test
-    void aces_return3Points_whenGivenCombinationWithThreeDicesFive() {
+    void twos_return6Points_whenGivenCombinationWithThreeDicesTwos() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 2, 1, 3), CategoryEnum.TWOS);
+
+        // Assert
+        assertEquals(6, result);
+    }
+
+    @Test
+    void three_return9Points_whenGivenCombinationWithThreeDicesThrees() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 3, 2, 1), CategoryEnum.THREES);
+
+        // Assert
+        assertEquals(9, result);
+    }
+
+    @Test
+    void four_return12Points_whenGivenCombinationWithThreeDicesFours() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(4, 4, 4, 2, 3), CategoryEnum.FOURS);
+
+        // Assert
+        assertEquals(12, result);
+    }
+
+    @Test
+    void five_return15Points_whenGivenCombinationWithThreeDicesFives() {
         // Arrange
         Yams yams = new Yams();
 
@@ -101,5 +137,17 @@ class YamsTest {
 
         // Assert
         assertEquals(15, result);
+    }
+
+    @Test
+    void sixes_return18Points_whenGivenCombinationWithThreeDicesSixes() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(6, 6, 6, 2, 3), CategoryEnum.SIXES);
+
+        // Assert
+        assertEquals(18, result);
     }
 }

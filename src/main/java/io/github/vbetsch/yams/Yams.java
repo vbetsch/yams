@@ -38,7 +38,11 @@ public class Yams {
             case CategoryEnum.CHANCE -> this.handleChanceScore(combination);
             case CategoryEnum.YAMS -> this.handleYamsScore(combination);
             case CategoryEnum.ACES -> this.handleTopPartScores(combination, 1);
+            case CategoryEnum.TWOS -> this.handleTopPartScores(combination, 2);
+            case CategoryEnum.THREES -> this.handleTopPartScores(combination, 3);
+            case CategoryEnum.FOURS -> this.handleTopPartScores(combination, 4);
             case CategoryEnum.FIVES -> this.handleTopPartScores(combination, 5);
+            case CategoryEnum.SIXES -> this.handleTopPartScores(combination, 6);
             default -> 1000;
         };
     }
