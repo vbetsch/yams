@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class YamsTest {
     @Test
-    void computeScore_shouldReturn15Points_whenGivenLargeStraightStartingByOne() {
+    void return15Points_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
