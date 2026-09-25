@@ -1,4 +1,4 @@
-package io.github.vbetsch.codecracker;
+package io.github.vbetsch.yams;
 
 import java.util.HashMap;
 import java.util.Map;

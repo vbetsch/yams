@@ -1,4 +1,4 @@
-package io.github.vbetsch.codecracker;
+package io.github.vbetsch.yams;
 
 public class CodeCracker {
     private final TranslationDictionary dictionary = new TranslationDictionary();
