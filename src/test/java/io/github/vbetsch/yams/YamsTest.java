@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class YamsTest {
     @Test
-    void return15Points_whenGivenLargeStraight() {
+    void chance_return15Points_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -20,7 +20,7 @@ class YamsTest {
     }
 
     @Test
-    void return16Points_whenGivenSmallStraight() {
+    void chance_return16Points_whenGivenSmallStraight() {
         // Arrange
         Yams yams = new Yams();
 
