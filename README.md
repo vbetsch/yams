@@ -39,7 +39,7 @@ The following categories exists:
 - [ ] Large straight: If the dice read 2,3,4,5,6, the player scores 20 (the sum of all the dice), otherwise 0.
 - [ ] Full house: If the dice are two of a kind and three of a kind, the player scores the sum of all the dice. For
   example, 1,1,2,2,2 placed on “full house” gives 8. 4,4,4,4,4 is not “full house”.
-- [ ] Yahtzee: If all dice are the have the same number, the player scores 50 points, otherwise 0.
+- [x] Yahtzee: If all dice are the have the same number, the player scores 50 points, otherwise 0.
 - [x] Chance: The player gets the sum of all dice, no matter what they read.
 
 The practitioner can feel free to create new categories as well.
