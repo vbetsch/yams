@@ -26,11 +26,10 @@ public class Yams {
     }
 
     public int computeScore(List<Integer> combination, CategoryEnum category) {
-        if (category == CategoryEnum.CHANCE) {
-            return this.handleChanceScore(combination);
-        } else if (category == CategoryEnum.YAMS) {
-            return this.handleYamsScore(combination);
-        }
-        return 1000;
+        return switch (category) {
+            case CategoryEnum.CHANCE -> this.handleChanceScore(combination);
+            case CategoryEnum.YAMS -> this.handleYamsScore(combination);
+            default -> 1000;
+        };
     }
 }
