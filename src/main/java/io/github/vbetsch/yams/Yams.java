@@ -5,11 +5,10 @@ import java.util.List;
 public class Yams {
     public int computeScore(List<Integer> combination, CategoryEnum category) {
         if (category == CategoryEnum.CHANCE) {
-            int result = 0;
-            for (Integer integer : combination) {
-                result += integer;
-            }
-            return result;
+            return combination
+                    .stream()
+                    .mapToInt(Integer::intValue)
+                    .sum();
         }
         return 1000;
     }
