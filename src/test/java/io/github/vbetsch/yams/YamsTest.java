@@ -18,4 +18,16 @@ class YamsTest {
         // Assert
         assertEquals(15, result);
     }
+
+    @Test
+    void return16Points_whenGivenSmallStraight() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 6), CategoryEnum.CHANCE);
+
+        // Assert
+        assertEquals(16, result);
+    }
 }
