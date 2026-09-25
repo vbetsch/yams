@@ -13,7 +13,7 @@ public class YamsTest {
         Yams yams = new Yams();
 
         // Act
-        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), "LARGE_STRAIGHT");
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.LARGE_STRAIGHT);
 
         // Assert
         assertEquals(40, result);
