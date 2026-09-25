@@ -5,7 +5,7 @@ import java.util.List;
 public class Yams {
     public int computeScore(List<Integer> combination, CategoryEnum category) {
         if (category == CategoryEnum.CHANCE) {
-            Integer result = 0;
+            int result = 0;
             for (Integer integer : combination) {
                 result += integer;
             }
