@@ -8,14 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class YamsTest {
     @Test
-    void computeScore_shouldReturn40Points_whenGivenLargeStraight() {
+    void computeScore_shouldReturnCorrectPoints_whenGivenChanceCategory() {
         // Arrange
         Yams yams = new Yams();
 
         // Act
-        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.LARGE_STRAIGHT);
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.CHANCE);
 
         // Assert
-        assertEquals(40, result);
+        assertEquals(15, result);
     }
 }
