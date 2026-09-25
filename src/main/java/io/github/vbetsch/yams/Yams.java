@@ -4,6 +4,13 @@ import java.util.List;
 
 public class Yams {
     public int computeScore(List<Integer> combination, CategoryEnum category) {
-        return 40;
+        if (category == CategoryEnum.CHANCE) {
+            Integer result = 0;
+            for (Integer integer : combination) {
+                result += integer;
+            }
+            return result;
+        }
+        return 1000;
     }
 }
