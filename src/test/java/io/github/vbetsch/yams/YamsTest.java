@@ -91,4 +91,15 @@ class YamsTest {
         assertEquals(3, result);
     }
 
+    @Test
+    void aces_return3Points_whenGivenCombinationWithThreeDicesFive() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(5, 5, 5, 2, 3), CategoryEnum.FIVES);
+
+        // Assert
+        assertEquals(15, result);
+    }
 }

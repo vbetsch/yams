@@ -33,11 +33,20 @@ public class Yams {
                 .sum();
     }
 
+    private int handleFivesScore(List<Integer> combination) {
+        return combination
+                .stream()
+                .filter(dice -> dice == 5)
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+
     public int computeScore(List<Integer> combination, CategoryEnum category) {
         return switch (category) {
             case CategoryEnum.CHANCE -> this.handleChanceScore(combination);
             case CategoryEnum.YAMS -> this.handleYamsScore(combination);
             case CategoryEnum.ACES -> this.handleAcesScore(combination);
+            case CategoryEnum.FIVES -> this.handleFivesScore(combination);
             default -> 1000;
         };
     }
