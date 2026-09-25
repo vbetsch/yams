@@ -32,12 +32,12 @@ class YamsTest {
     }
 
     @Test
-    void yams_return50Points_whenGivenLargeStraight() {
+    void yams_return50Points_whenGivenFiveDicesSix() {
         // Arrange
         Yams yams = new Yams();
 
         // Act
-        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.YAMS);
+        int result = yams.computeScore(List.of(6, 6, 6, 6, 6), CategoryEnum.YAMS);
 
         // Assert
         assertEquals(50, result);
