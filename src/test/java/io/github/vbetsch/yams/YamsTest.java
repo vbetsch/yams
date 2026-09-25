@@ -78,4 +78,17 @@ class YamsTest {
         // Assert
         assertEquals(0, result);
     }
+
+    @Test
+    void aces_return3Points_whenGivenCombinationWithThreeAces() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 1, 1, 2, 3), CategoryEnum.ACES);
+
+        // Assert
+        assertEquals(3, result);
+    }
+
 }
