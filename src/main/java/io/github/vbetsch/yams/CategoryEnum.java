@@ -7,6 +7,7 @@ public enum CategoryEnum {
     FOURS,
     FIVES,
     SIXES,
+    PAIR,
     THREE_OF_A_KIND,
     FOUR_OF_A_KIND,
 //    FULL_HOUSE,
