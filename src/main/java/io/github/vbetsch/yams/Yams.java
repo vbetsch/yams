@@ -48,17 +48,28 @@ public class Yams {
         return reducedRoll.count() == (Yams.DICES_COUNT - duplicatesNumber + 1);
     }
 
-    private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
-        if (!this.containsDuplicatesNth(roll, 2)) {
-            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.PAIR);
-        }
+    private Map<Integer, Integer> getOccurrencesByValue(List<Integer> roll) {
         Map<Integer, Integer> occurrencesByValue = new HashMap<>();
         for (int i = 0; i < roll.size(); i++) {
             int diceValue = roll.get(i);
             occurrencesByValue.merge(diceValue, 1, Integer::sum);
         }
         IO.println(occurrencesByValue);
-        return 4;
+        return occurrencesByValue;
+    }
+
+    private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
+        if (!this.containsDuplicatesNth(roll, 2)) {
+            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.PAIR);
+        }
+        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
+        return occurrencesByValue
+                .entrySet()
+                .stream()
+                .filter(occurrenceByValue -> occurrenceByValue.getValue() == 2)
+                .map(Map.Entry::getKey)
+                .max(Integer::compare)
+                .orElse(0) * 2;
     }
 
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
