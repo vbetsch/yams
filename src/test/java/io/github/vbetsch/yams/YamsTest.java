@@ -153,6 +153,18 @@ class YamsTest {
     }
 
     @Test
+    void pair_return4Points_whenGivenRollWithOnlyOnePair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 3, 4, 5), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(4, result);
+    }
+
+    @Test
     void threeOfAKind_return3Points_whenGivenThreeDicesOnes() {
         // Arrange
         Yams yams = new Yams();

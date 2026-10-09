@@ -1,6 +1,8 @@
 package io.github.vbetsch.yams;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 public class Yams {
@@ -46,6 +48,19 @@ public class Yams {
         return reducedRoll.count() == (Yams.DICES_COUNT - duplicatesNumber + 1);
     }
 
+    private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
+        if (!this.containsDuplicatesNth(roll, 2)) {
+            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.PAIR);
+        }
+        Map<Integer, Integer> occurrencesByValue = new HashMap<>();
+        for (int i = 0; i < roll.size(); i++) {
+            int diceValue = roll.get(i);
+            occurrencesByValue.merge(diceValue, 1, Integer::sum);
+        }
+        IO.println(occurrencesByValue);
+        return 4;
+    }
+
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         if (!this.containsDuplicatesNth(roll, 3)) {
             throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.THREE_OF_A_KIND);
@@ -73,6 +88,7 @@ public class Yams {
             case CategoryEnum.FOURS -> this.handleTopPartScores(roll, 4);
             case CategoryEnum.FIVES -> this.handleTopPartScores(roll, 5);
             case CategoryEnum.SIXES -> this.handleTopPartScores(roll, 6);
+            case CategoryEnum.PAIR -> this.handlePairScore(roll);
             case CategoryEnum.THREE_OF_A_KIND -> this.handleThreeOfAKindScore(roll);
             case CategoryEnum.FOUR_OF_A_KIND -> this.handleFourOfAKindScore(roll);
             default -> 1000;
