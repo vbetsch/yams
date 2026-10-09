@@ -225,4 +225,46 @@ class YamsTest {
                 "We cannot compute score with category FourOfAKind for this roll"
         );
     }
+
+    @Test
+    void shouldThrowInvalidRollSizeErrorWhenGivenLessThanFiveDices() {
+        // Arrange
+        Yams yams = new Yams();
+        List<Integer> roll = List.of(1, 2, 3, 4);
+
+        // Act & Assert
+        assertThrows(
+                InvalidRollSizeError.class,
+                () -> yams.computeScore(roll, CategoryEnum.CHANCE),
+                "Roll must contain exactly 5 dices"
+        );
+    }
+
+    @Test
+    void shouldThrowInvalidRollSizeErrorWhenGivenMoreThanFiveDices() {
+        // Arrange
+        Yams yams = new Yams();
+        List<Integer> roll = List.of(1, 2, 3, 4, 5, 6);
+
+        // Act & Assert
+        assertThrows(
+                InvalidRollSizeError.class,
+                () -> yams.computeScore(roll, CategoryEnum.CHANCE),
+                "Roll must contain exactly 5 dices"
+        );
+    }
+
+    @Test
+    void shouldThrowInvalidRollSizeErrorWhenGivenNoDice() {
+        // Arrange
+        Yams yams = new Yams();
+        List<Integer> roll = List.of();
+
+        // Act & Assert
+        assertThrows(
+                InvalidRollSizeError.class,
+                () -> yams.computeScore(roll, CategoryEnum.CHANCE),
+                "Roll must contain exactly 5 dices"
+        );
+    }
 }
