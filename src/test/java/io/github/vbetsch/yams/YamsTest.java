@@ -177,7 +177,7 @@ class YamsTest {
     }
 
     @Test
-    void threeOfAKind_returnIllegalArgumentException_whenGivenLargeStraight() {
+    void threeOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -214,7 +214,7 @@ class YamsTest {
     }
 
     @Test
-    void fourOfAKind_returnIllegalArgumentException_whenGivenLargeStraight() {
+    void fourOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -227,7 +227,7 @@ class YamsTest {
     }
 
     @Test
-    void shouldThrowInvalidRollSizeErrorWhenGivenLessThanFiveDices() {
+    void throwIllegalArgumentException_whenGivenLessThanFiveDices() {
         // Arrange
         Yams yams = new Yams();
         List<Integer> roll = List.of(1, 2, 3, 4);
@@ -241,7 +241,7 @@ class YamsTest {
     }
 
     @Test
-    void shouldThrowInvalidRollSizeErrorWhenGivenMoreThanFiveDices() {
+    void throwIllegalArgumentException_whenGivenMoreThanFiveDices() {
         // Arrange
         Yams yams = new Yams();
         List<Integer> roll = List.of(1, 2, 3, 4, 5, 6);
@@ -255,7 +255,7 @@ class YamsTest {
     }
 
     @Test
-    void shouldThrowInvalidRollSizeErrorWhenGivenNoDice() {
+    void throwIllegalArgumentException_whenGivenNoDice() {
         // Arrange
         Yams yams = new Yams();
         List<Integer> roll = List.of();
