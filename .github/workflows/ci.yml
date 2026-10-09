@@ -1,8 +1,15 @@
 name: CI
 
 on:
-  push:
   pull_request:
+    paths-ignore:
+      - '.idea/**'
+      - '.gitignore'
+      - 'README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   test:
