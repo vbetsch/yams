@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class YamsTest {
     // --- CHANCE ---
     @Test
-    void chance_return15Points_whenGivenLargeStraight() {
+    void chance_returnPoints_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -22,7 +22,7 @@ class YamsTest {
     }
 
     @Test
-    void chance_return16Points_whenGivenSmallStraight() {
+    void chance_returnPoints_whenGivenSmallStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -35,7 +35,7 @@ class YamsTest {
 
     // --- YAMS ---
     @Test
-    void yams_return50Points_whenGivenFiveDicesSix() {
+    void yams_returnPoints_whenGivenFiveDicesSix() {
         // Arrange
         Yams yams = new Yams();
 
@@ -47,7 +47,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return50Points_whenGivenFiveDicesThree() {
+    void yams_returnPoints_whenGivenFiveDicesThree() {
         // Arrange
         Yams yams = new Yams();
 
@@ -59,7 +59,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return0Points_whenGivenRollWithDuplicates() {
+    void yams_returnPoints_whenGivenRollWithDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
@@ -71,7 +71,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return0Points_whenGivenRollWithoutDuplicates() {
+    void yams_returnPoints_whenGivenRollWithoutDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
@@ -84,7 +84,7 @@ class YamsTest {
 
     // --- ACES ---
     @Test
-    void aces_return3Points_whenGivenRollWithThreeDicesAces() {
+    void aces_returnPoints_whenGivenRollWithThreeDicesAces() {
         // Arrange
         Yams yams = new Yams();
 
@@ -97,7 +97,7 @@ class YamsTest {
 
     // --- TOP PARTS ---
     @Test
-    void twos_return6Points_whenGivenRollWithThreeDicesTwos() {
+    void twos_returnPoints_whenGivenRollWithThreeDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
@@ -109,7 +109,7 @@ class YamsTest {
     }
 
     @Test
-    void three_return9Points_whenGivenRollWithThreeDicesThrees() {
+    void three_returnPoints_whenGivenRollWithThreeDicesThrees() {
         // Arrange
         Yams yams = new Yams();
 
@@ -121,7 +121,7 @@ class YamsTest {
     }
 
     @Test
-    void four_return12Points_whenGivenRollWithThreeDicesFours() {
+    void four_returnPoints_whenGivenRollWithThreeDicesFours() {
         // Arrange
         Yams yams = new Yams();
 
@@ -133,7 +133,7 @@ class YamsTest {
     }
 
     @Test
-    void five_return15Points_whenGivenRollWithThreeDicesFives() {
+    void five_returnPoints_whenGivenRollWithThreeDicesFives() {
         // Arrange
         Yams yams = new Yams();
 
@@ -145,7 +145,7 @@ class YamsTest {
     }
 
     @Test
-    void sixes_return18Points_whenGivenRollWithThreeDicesSixes() {
+    void sixes_returnPoints_whenGivenRollWithThreeDicesSixes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -171,7 +171,7 @@ class YamsTest {
     }
 
     @Test
-    void pair_return4Points_whenGivenRollWithOnlyOnePairOfTwo() {
+    void pair_returnPoints_whenGivenRollWithOnlyOnePairOfTwo() {
         // Arrange
         Yams yams = new Yams();
 
@@ -183,7 +183,7 @@ class YamsTest {
     }
 
     @Test
-    void pair_return4Points_whenGivenRollWithOnlyOnePairOfThree() {
+    void pair_returnPoints_whenGivenRollWithOnlyOnePairOfThree() {
         // Arrange
         Yams yams = new Yams();
 
@@ -197,7 +197,7 @@ class YamsTest {
 
     // --- THREE OF A KIND ---
     @Test
-    void threeOfAKind_return3Points_whenGivenThreeDicesOnes() {
+    void threeOfAKind_returnPoints_whenGivenThreeDicesOnes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -209,7 +209,7 @@ class YamsTest {
     }
 
     @Test
-    void threeOfAKind_return10Points_whenGivenThreeDicesTwos() {
+    void threeOfAKind_returnPoints_whenGivenThreeDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
@@ -235,7 +235,7 @@ class YamsTest {
 
     // --- FOUR OF A KIND ---
     @Test
-    void fourOfAKind_return7Points_whenGivenFourDicesOnes() {
+    void fourOfAKind_returnPoints_whenGivenFourDicesOnes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -247,7 +247,7 @@ class YamsTest {
     }
 
     @Test
-    void fourOfAKind_return11Points_whenGivenFourDicesTwos() {
+    void fourOfAKind_returnPoints_whenGivenFourDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
