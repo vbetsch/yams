@@ -156,14 +156,19 @@ class YamsTest {
         assertEquals(18, result);
     }
 
-//    @Test
-//    void pair_throwIllegalArgumentException_whenGivenNotPair() {
-//        // Arrange
-//        Yams yams = new Yams();
-//
-//        // Act
-//        int result = yams.computeScore(List.of(6, 6, 6, 2, 3), CategoryEnum.SIXES);
-//    }
+    // --- PAIRS ---
+    @Test
+    void pair_throwIllegalArgumentException_whenGivenNotPair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act & Assert
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.PAIR),
+                "We cannot compute score with category PAIR for this roll"
+        );
+    }
 
     @Test
     void pair_return4Points_whenGivenRollWithOnlyOnePair() {
