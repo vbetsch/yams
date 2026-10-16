@@ -35,6 +35,13 @@ public class Yams {
                 .sum();
     }
 
+    private Stream<Map.Entry<Integer, Integer>> getAllPairsOccurrences(Map<Integer, Integer> occurrencesByValue) {
+        return occurrencesByValue
+                .entrySet()
+                .stream()
+                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2);
+    }
+
     // Handlers
     private int handleChanceScore(List<Integer> roll) {
         return this.calculateSumOfDices(roll);
@@ -66,10 +73,7 @@ public class Yams {
         if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 2, 1)) {
             return 0;
         }
-        return occurrencesByValue
-                .entrySet()
-                .stream()
-                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2)
+        return this.getAllPairsOccurrences(occurrencesByValue)
                 .map(Map.Entry::getKey)
                 .max(Integer::compare)
                 .orElse(0) * 2;
@@ -80,10 +84,7 @@ public class Yams {
         if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 2, 2)) {
             return 0;
         }
-        return occurrencesByValue
-                .entrySet()
-                .stream()
-                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2)
+        return this.getAllPairsOccurrences(occurrencesByValue)
                 .map(occurrenceByValue -> occurrenceByValue.getKey() * 2)
                 .mapToInt(Integer::intValue)
                 .sum();
