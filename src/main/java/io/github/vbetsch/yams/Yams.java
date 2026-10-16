@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Yams {
     static final int DICES_COUNT = 5;
@@ -24,6 +25,14 @@ public class Yams {
                 .entrySet()
                 .stream()
                 .anyMatch(occurrenceByValue -> occurrenceByValue.getValue() >= duplicatesNumber);
+    }
+
+    private boolean containsAtLeastXDuplicatesOnYDifferentDices(Map<Integer, Integer> occurrencesByValue, int duplicatesNumber, int differentDices) {
+        Stream<Map.Entry<Integer, Integer>> matchingOccurrences = occurrencesByValue
+                .entrySet()
+                .stream()
+                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= duplicatesNumber);
+        return matchingOccurrences.count() == differentDices;
     }
 
     private int calculateSumOfDices(List<Integer> roll) {
@@ -73,6 +82,20 @@ public class Yams {
                 .orElse(0) * 2;
     }
 
+    private int handleTwoPairsScore(List<Integer> roll) throws IllegalArgumentException {
+        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
+        if (!this.containsAtLeastXDuplicatesOnYDifferentDices(occurrencesByValue, 2, 2)) {
+            return 0;
+        }
+        return occurrencesByValue
+                .entrySet()
+                .stream()
+                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2)
+                .map(Map.Entry::getKey)
+                .max(Integer::compare)
+                .orElse(0) * 2;
+    }
+
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
         if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 3)) {
@@ -104,7 +127,7 @@ public class Yams {
             case CategoryEnum.FIVES -> this.handleTopPartScores(roll, 5);
             case CategoryEnum.SIXES -> this.handleTopPartScores(roll, 6);
             case CategoryEnum.PAIR -> this.handlePairScore(roll);
-            case CategoryEnum.TWO_PAIRS -> this.handlePairScore(roll);
+            case CategoryEnum.TWO_PAIRS -> this.handleTwoPairsScore(roll);
             case CategoryEnum.THREE_OF_A_KIND -> this.handleThreeOfAKindScore(roll);
             case CategoryEnum.FOUR_OF_A_KIND -> this.handleFourOfAKindScore(roll);
             default -> 1000;

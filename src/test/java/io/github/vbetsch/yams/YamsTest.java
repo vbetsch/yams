@@ -219,7 +219,7 @@ class YamsTest {
 
     // --- TWO PAIRS ---
     @Test
-    void twopairs_returnZeroPoints_whenGivenNotPair() {
+    void two_pairs_returnZeroPoints_whenGivenNotPair() {
         // Arrange
         Yams yams = new Yams();
 
@@ -228,6 +228,30 @@ class YamsTest {
 
         // Assert
         assertEquals(0, result);
+    }
+
+    @Test
+    void two_pairs_returnZeroPoints_whenGivenRollWithOnlyOnePair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 3, 4, 5), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithTwoPairs() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 4, 1), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(14, result);
     }
 
     // --- THREE OF A KIND ---
