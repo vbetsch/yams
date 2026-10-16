@@ -84,9 +84,9 @@ public class Yams {
                 .entrySet()
                 .stream()
                 .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2)
-                .map(Map.Entry::getKey)
-                .max(Integer::compare)
-                .orElse(0) * 2;
+                .map(occurrenceByValue -> occurrenceByValue.getKey() * 2)
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {

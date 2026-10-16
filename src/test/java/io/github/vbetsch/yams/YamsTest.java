@@ -254,6 +254,18 @@ class YamsTest {
         assertEquals(14, result);
     }
 
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithFull() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 4, 4), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(14, result);
+    }
+
     // --- THREE OF A KIND ---
     @Test
     void threeOfAKind_returnPoints_whenGivenThreeDicesOnes() {
