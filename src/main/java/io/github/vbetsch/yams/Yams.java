@@ -104,6 +104,7 @@ public class Yams {
             case CategoryEnum.FIVES -> this.handleTopPartScores(roll, 5);
             case CategoryEnum.SIXES -> this.handleTopPartScores(roll, 6);
             case CategoryEnum.PAIR -> this.handlePairScore(roll);
+            case CategoryEnum.TWO_PAIRS -> this.handlePairScore(roll);
             case CategoryEnum.THREE_OF_A_KIND -> this.handleThreeOfAKindScore(roll);
             case CategoryEnum.FOUR_OF_A_KIND -> this.handleFourOfAKindScore(roll);
             default -> 1000;

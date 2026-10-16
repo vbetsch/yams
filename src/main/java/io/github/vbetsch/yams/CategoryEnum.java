@@ -10,7 +10,7 @@ public enum CategoryEnum {
     SIXES,
     // --- BONUS PART (kata) ---
     PAIR,
-//    TWO_PAIRS,
+    TWO_PAIRS,
     // --- BOTTOM PART ---
     THREE_OF_A_KIND,
     FOUR_OF_A_KIND,

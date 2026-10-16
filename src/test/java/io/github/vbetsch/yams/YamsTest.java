@@ -217,6 +217,19 @@ class YamsTest {
         assertEquals(8, result);
     }
 
+    // --- TWO PAIRS ---
+    @Test
+    void twopairs_returnZeroPoints_whenGivenNotPair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
     // --- THREE OF A KIND ---
     @Test
     void threeOfAKind_returnPoints_whenGivenThreeDicesOnes() {
