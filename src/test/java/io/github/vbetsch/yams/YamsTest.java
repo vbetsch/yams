@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class YamsTest {
+    // --- CHANCE ---
     @Test
     void chance_return15Points_whenGivenLargeStraight() {
         // Arrange
@@ -32,6 +33,7 @@ class YamsTest {
         assertEquals(16, result);
     }
 
+    // --- YAMS ---
     @Test
     void yams_return50Points_whenGivenFiveDicesSix() {
         // Arrange
@@ -80,6 +82,7 @@ class YamsTest {
         assertEquals(0, result);
     }
 
+    // --- ACES ---
     @Test
     void aces_return3Points_whenGivenRollWithThreeDicesAces() {
         // Arrange
@@ -92,6 +95,7 @@ class YamsTest {
         assertEquals(3, result);
     }
 
+    // --- TOP PARTS ---
     @Test
     void twos_return6Points_whenGivenRollWithThreeDicesTwos() {
         // Arrange
@@ -173,6 +177,7 @@ class YamsTest {
         assertEquals(4, result);
     }
 
+    // --- THREE OF A KIND ---
     @Test
     void threeOfAKind_return3Points_whenGivenThreeDicesOnes() {
         // Arrange
@@ -210,6 +215,7 @@ class YamsTest {
         );
     }
 
+    // --- FOUR OF A KIND ---
     @Test
     void fourOfAKind_return7Points_whenGivenFourDicesOnes() {
         // Arrange
@@ -247,6 +253,7 @@ class YamsTest {
         );
     }
 
+    // --- CHECKS ---
     @Test
     void throwIllegalArgumentException_whenGivenLessThanFiveDices() {
         // Arrange
