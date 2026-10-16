@@ -8,8 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class YamsTest {
+    // --- CHANCE ---
     @Test
-    void chance_return15Points_whenGivenLargeStraight() {
+    void chance_returnPoints_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -21,7 +22,7 @@ class YamsTest {
     }
 
     @Test
-    void chance_return16Points_whenGivenSmallStraight() {
+    void chance_returnPoints_whenGivenSmallStraight() {
         // Arrange
         Yams yams = new Yams();
 
@@ -32,8 +33,9 @@ class YamsTest {
         assertEquals(16, result);
     }
 
+    // --- YAMS ---
     @Test
-    void yams_return50Points_whenGivenFiveDicesSix() {
+    void yams_returnPoints_whenGivenFiveDicesSix() {
         // Arrange
         Yams yams = new Yams();
 
@@ -45,7 +47,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return50Points_whenGivenFiveDicesThree() {
+    void yams_returnPoints_whenGivenFiveDicesThree() {
         // Arrange
         Yams yams = new Yams();
 
@@ -57,7 +59,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return0Points_whenGivenRollWithDuplicates() {
+    void yams_returnZeroPoints_whenGivenRollWithDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
@@ -69,7 +71,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_return0Points_whenGivenRollWithoutDuplicates() {
+    void yams_returnZeroPoints_whenGivenRollWithoutDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
@@ -80,8 +82,9 @@ class YamsTest {
         assertEquals(0, result);
     }
 
+    // --- ACES ---
     @Test
-    void aces_return3Points_whenGivenRollWithThreeDicesAces() {
+    void aces_returnPoints_whenGivenRollWithThreeDicesAces() {
         // Arrange
         Yams yams = new Yams();
 
@@ -92,8 +95,9 @@ class YamsTest {
         assertEquals(3, result);
     }
 
+    // --- TOP PARTS ---
     @Test
-    void twos_return6Points_whenGivenRollWithThreeDicesTwos() {
+    void twos_returnPoints_whenGivenRollWithThreeDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
@@ -105,7 +109,7 @@ class YamsTest {
     }
 
     @Test
-    void three_return9Points_whenGivenRollWithThreeDicesThrees() {
+    void three_returnPoints_whenGivenRollWithThreeDicesThrees() {
         // Arrange
         Yams yams = new Yams();
 
@@ -117,7 +121,7 @@ class YamsTest {
     }
 
     @Test
-    void four_return12Points_whenGivenRollWithThreeDicesFours() {
+    void four_returnPoints_whenGivenRollWithThreeDicesFours() {
         // Arrange
         Yams yams = new Yams();
 
@@ -129,7 +133,7 @@ class YamsTest {
     }
 
     @Test
-    void five_return15Points_whenGivenRollWithThreeDicesFives() {
+    void five_returnPoints_whenGivenRollWithThreeDicesFives() {
         // Arrange
         Yams yams = new Yams();
 
@@ -141,7 +145,7 @@ class YamsTest {
     }
 
     @Test
-    void sixes_return18Points_whenGivenRollWithThreeDicesSixes() {
+    void sixes_returnPoints_whenGivenRollWithThreeDicesSixes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -152,8 +156,131 @@ class YamsTest {
         assertEquals(18, result);
     }
 
+    // --- PAIRS ---
     @Test
-    void threeOfAKind_return3Points_whenGivenThreeDicesOnes() {
+    void pair_returnZeroPoints_whenGivenNotPair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    void pair_returnPoints_whenGivenRollWithOnlyOnePairOfTwo() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 3, 4, 5), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(4, result);
+    }
+
+    @Test
+    void pair_returnPoints_whenGivenRollWithOnlyOnePairOfThree() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 5, 1), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(6, result);
+    }
+
+    @Test
+    void pair_returnPoints_whenGivenRollWithMoreThanTwoDices() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 3, 5, 1), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(6, result);
+    }
+
+    @Test
+    void pair_returnPoints_whenGivenRollWithTwoPairs() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 4, 1), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(8, result);
+    }
+
+    // --- TWO PAIRS ---
+    @Test
+    void two_pairs_returnZeroPoints_whenGivenNotPair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    void two_pairs_returnZeroPoints_whenGivenRollWithOnlyOnePair() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 3, 4, 5), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithTwoPairsOfThreeAndFour() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 4, 1), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(14, result);
+    }
+
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithTwoPairsOfFourAndFive() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(4, 4, 5, 5, 1), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(18, result);
+    }
+
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithFull() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 4, 4), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(14, result);
+    }
+
+    // --- THREE OF A KIND ---
+    @Test
+    void threeOfAKind_returnPoints_whenGivenThreeDicesOnes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -165,7 +292,7 @@ class YamsTest {
     }
 
     @Test
-    void threeOfAKind_return10Points_whenGivenThreeDicesTwos() {
+    void threeOfAKind_returnPoints_whenGivenThreeDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
@@ -177,20 +304,32 @@ class YamsTest {
     }
 
     @Test
-    void threeOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
+    void threeOfAKind_returnPoints_whenGivenMoreThanThreeDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
-        // Act & Assert
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.THREE_OF_A_KIND),
-                "We cannot compute score with category ThreeOfAKind for this roll"
-        );
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 2, 2, 3), CategoryEnum.THREE_OF_A_KIND);
+
+        // Assert
+        assertEquals(11, result);
     }
 
     @Test
-    void fourOfAKind_return7Points_whenGivenFourDicesOnes() {
+    void threeOfAKind_returnZeroPoints_whenGivenLargeStraight() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.THREE_OF_A_KIND);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    // --- FOUR OF A KIND ---
+    @Test
+    void fourOfAKind_returnPoints_whenGivenFourDicesOnes() {
         // Arrange
         Yams yams = new Yams();
 
@@ -202,7 +341,7 @@ class YamsTest {
     }
 
     @Test
-    void fourOfAKind_return11Points_whenGivenFourDicesTwos() {
+    void fourOfAKind_returnPoints_whenGivenFourDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
@@ -214,18 +353,30 @@ class YamsTest {
     }
 
     @Test
-    void fourOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
+    void fourOfAKind_returnPoints_whenGivenMoreThanFourDicesTwos() {
         // Arrange
         Yams yams = new Yams();
 
-        // Act & Assert
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND),
-                "We cannot compute score with category FourOfAKind for this roll"
-        );
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 2, 2, 2), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(10, result);
     }
 
+    @Test
+    void fourOfAKind_returnZeroPoints_whenGivenLargeStraight() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(0, result);
+    }
+
+    // --- CHECKS ---
     @Test
     void throwIllegalArgumentException_whenGivenLessThanFiveDices() {
         // Arrange
@@ -233,7 +384,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(1, 2, 3, 4), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
@@ -246,7 +397,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(1, 2, 3, 4, 5, 6), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
@@ -259,7 +410,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
