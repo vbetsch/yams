@@ -59,7 +59,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_returnPoints_whenGivenRollWithDuplicates() {
+    void yams_returnZeroPoints_whenGivenRollWithDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
@@ -71,7 +71,7 @@ class YamsTest {
     }
 
     @Test
-    void yams_returnPoints_whenGivenRollWithoutDuplicates() {
+    void yams_returnZeroPoints_whenGivenRollWithoutDuplicates() {
         // Arrange
         Yams yams = new Yams();
 
