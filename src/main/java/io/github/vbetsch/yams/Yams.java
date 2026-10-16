@@ -19,12 +19,11 @@ public class Yams {
         return occurrencesByValue;
     }
 
-    private boolean containsDuplicatesNth(List<Integer> roll, int duplicatesNumber) {
-        IntStream reducedRoll = roll
+    private boolean containsAtLeastDuplicatesNth(Map<Integer, Integer> occurrencesByValue, int duplicatesNumber) {
+        return occurrencesByValue
+                .entrySet()
                 .stream()
-                .mapToInt(Integer::intValue)
-                .distinct();
-        return reducedRoll.count() == (Yams.DICES_COUNT - duplicatesNumber + 1);
+                .anyMatch(occurrenceByValue -> occurrenceByValue.getValue() >= duplicatesNumber);
     }
 
     private int calculateSumOfDices(List<Integer> roll) {
@@ -61,10 +60,10 @@ public class Yams {
     }
 
     private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
-        if (!this.containsDuplicatesNth(roll, 2)) {
+        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
+        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 2)) {
             throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.PAIR);
         }
-        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
         return occurrencesByValue
                 .entrySet()
                 .stream()
@@ -75,14 +74,16 @@ public class Yams {
     }
 
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
-        if (!this.containsDuplicatesNth(roll, 3)) {
+        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
+        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 3)) {
             throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.THREE_OF_A_KIND);
         }
         return this.calculateSumOfDices(roll);
     }
 
     private int handleFourOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
-        if (!this.containsDuplicatesNth(roll, 4)) {
+        Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
+        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 4)) {
             throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.FOUR_OF_A_KIND);
         }
         return this.calculateSumOfDices(roll);
