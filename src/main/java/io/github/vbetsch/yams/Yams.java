@@ -20,19 +20,12 @@ public class Yams {
         return occurrencesByValue;
     }
 
-    private boolean containsAtLeastDuplicatesNth(Map<Integer, Integer> occurrencesByValue, int duplicatesNumber) {
-        return occurrencesByValue
-                .entrySet()
-                .stream()
-                .anyMatch(occurrenceByValue -> occurrenceByValue.getValue() >= duplicatesNumber);
-    }
-
-    private boolean containsAtLeastXDuplicatesOnYDifferentDices(Map<Integer, Integer> occurrencesByValue, int duplicatesNumber, int differentDices) {
+    private boolean containsAtLeastXDuplicatesOnAtLeastYDifferentDices(Map<Integer, Integer> occurrencesByValue, int duplicatesNumber, int differentDices) {
         Stream<Map.Entry<Integer, Integer>> matchingOccurrences = occurrencesByValue
                 .entrySet()
                 .stream()
                 .filter(occurrenceByValue -> occurrenceByValue.getValue() >= duplicatesNumber);
-        return matchingOccurrences.count() == differentDices;
+        return matchingOccurrences.count() >= differentDices;
     }
 
     private int calculateSumOfDices(List<Integer> roll) {
@@ -70,7 +63,7 @@ public class Yams {
 
     private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
-        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 2)) {
+        if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 2, 1)) {
             return 0;
         }
         return occurrencesByValue
@@ -84,7 +77,7 @@ public class Yams {
 
     private int handleTwoPairsScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
-        if (!this.containsAtLeastXDuplicatesOnYDifferentDices(occurrencesByValue, 2, 2)) {
+        if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 2, 2)) {
             return 0;
         }
         return occurrencesByValue
@@ -98,7 +91,7 @@ public class Yams {
 
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
-        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 3)) {
+        if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 3, 1)) {
             return 0;
         }
         return this.calculateSumOfDices(roll);
@@ -106,7 +99,7 @@ public class Yams {
 
     private int handleFourOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
-        if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 4)) {
+        if (!this.containsAtLeastXDuplicatesOnAtLeastYDifferentDices(occurrencesByValue, 4, 1)) {
             return 0;
         }
         return this.calculateSumOfDices(roll);
