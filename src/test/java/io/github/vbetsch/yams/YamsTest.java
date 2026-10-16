@@ -171,7 +171,7 @@ class YamsTest {
     }
 
     @Test
-    void pair_return4Points_whenGivenRollWithOnlyOnePair() {
+    void pair_return4Points_whenGivenRollWithOnlyOnePairOfTwo() {
         // Arrange
         Yams yams = new Yams();
 
@@ -181,6 +181,19 @@ class YamsTest {
         // Assert
         assertEquals(4, result);
     }
+
+    @Test
+    void pair_return4Points_whenGivenRollWithOnlyOnePairOfThree() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 4, 5, 1), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(6, result);
+    }
+
 
     // --- THREE OF A KIND ---
     @Test
