@@ -206,7 +206,6 @@ class YamsTest {
         assertEquals(8, result);
     }
 
-
     // --- THREE OF A KIND ---
     @Test
     void threeOfAKind_returnPoints_whenGivenThreeDicesOnes() {
@@ -230,6 +229,18 @@ class YamsTest {
 
         // Assert
         assertEquals(10, result);
+    }
+
+    @Test
+    void threeOfAKind_returnPoints_whenGivenMoreThanThreeDicesTwos() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 2, 2, 3), CategoryEnum.THREE_OF_A_KIND);
+
+        // Assert
+        assertEquals(11, result);
     }
 
     @Test
@@ -268,6 +279,18 @@ class YamsTest {
 
         // Assert
         assertEquals(11, result);
+    }
+
+    @Test
+    void fourOfAKind_returnPoints_whenGivenMoreThanFourDicesTwos() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(2, 2, 2, 2, 2), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(10, result);
     }
 
     @Test
