@@ -12,8 +12,8 @@ public class Yams {
     // Utils
     private Map<Integer, Integer> getOccurrencesByValue(List<Integer> roll) {
         Map<Integer, Integer> occurrencesByValue = new HashMap<>();
-        for (int i = 0; i < roll.size(); i++) {
-            int diceValue = roll.get(i);
+        for (int index = 0; index < roll.size(); index++) {
+            int diceValue = roll.get(index);
             occurrencesByValue.merge(diceValue, 1, Integer::sum);
         }
         IO.println(occurrencesByValue);
