@@ -195,6 +195,18 @@ class YamsTest {
     }
 
     @Test
+    void pair_returnPoints_whenGivenRollWithMoreThanTwoDices() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(3, 3, 3, 5, 1), CategoryEnum.PAIR);
+
+        // Assert
+        assertEquals(6, result);
+    }
+
+    @Test
     void pair_returnPoints_whenGivenRollWithTwoPairs() {
         // Arrange
         Yams yams = new Yams();

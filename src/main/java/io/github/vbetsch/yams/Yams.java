@@ -67,7 +67,7 @@ public class Yams {
         return occurrencesByValue
                 .entrySet()
                 .stream()
-                .filter(occurrenceByValue -> occurrenceByValue.getValue() == 2)
+                .filter(occurrenceByValue -> occurrenceByValue.getValue() >= 2)
                 .map(Map.Entry::getKey)
                 .max(Integer::compare)
                 .orElse(0) * 2;
