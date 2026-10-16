@@ -163,7 +163,7 @@ class YamsTest {
         Yams yams = new Yams();
 
         // Act
-        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.PAIR);
 
         // Assert
         assertEquals(0, result);
@@ -260,7 +260,7 @@ class YamsTest {
         Yams yams = new Yams();
 
         // Act
-        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.THREE_OF_A_KIND);
 
         // Assert
         assertEquals(0, result);
