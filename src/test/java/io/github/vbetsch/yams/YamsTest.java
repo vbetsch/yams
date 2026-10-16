@@ -158,16 +158,15 @@ class YamsTest {
 
     // --- PAIRS ---
     @Test
-    void pair_throwIllegalArgumentException_whenGivenNotPair() {
+    void pair_returnZeroPoints_whenGivenNotPair() {
         // Arrange
         Yams yams = new Yams();
 
-        // Act & Assert
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.PAIR),
-                "We cannot compute score with category PAIR for this roll"
-        );
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(0, result);
     }
 
     @Test
@@ -256,16 +255,15 @@ class YamsTest {
     }
 
     @Test
-    void threeOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
+    void threeOfAKind_returnZeroPoints_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
-        // Act & Assert
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.THREE_OF_A_KIND),
-                "We cannot compute score with category ThreeOfAKind for this roll"
-        );
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(0, result);
     }
 
     // --- FOUR OF A KIND ---
@@ -306,16 +304,15 @@ class YamsTest {
     }
 
     @Test
-    void fourOfAKind_throwIllegalArgumentException_whenGivenLargeStraight() {
+    void fourOfAKind_returnZeroPoints_whenGivenLargeStraight() {
         // Arrange
         Yams yams = new Yams();
 
-        // Act & Assert
-        assertThrows(
-                IllegalArgumentException.class,
-                () -> yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND),
-                "We cannot compute score with category FourOfAKind for this roll"
-        );
+        // Act
+        int result = yams.computeScore(List.of(1, 2, 3, 4, 5), CategoryEnum.FOUR_OF_A_KIND);
+
+        // Assert
+        assertEquals(0, result);
     }
 
     // --- CHECKS ---

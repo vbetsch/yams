@@ -62,7 +62,7 @@ public class Yams {
     private int handlePairScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
         if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 2)) {
-            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.PAIR);
+            return 0;
         }
         return occurrencesByValue
                 .entrySet()
@@ -76,7 +76,7 @@ public class Yams {
     private int handleThreeOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
         if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 3)) {
-            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.THREE_OF_A_KIND);
+            return 0;
         }
         return this.calculateSumOfDices(roll);
     }
@@ -84,7 +84,7 @@ public class Yams {
     private int handleFourOfAKindScore(List<Integer> roll) throws IllegalArgumentException {
         Map<Integer, Integer> occurrencesByValue = this.getOccurrencesByValue(roll);
         if (!this.containsAtLeastDuplicatesNth(occurrencesByValue, 4)) {
-            throw new CategoryNotAuthorizedForThisRollError(CategoryEnum.FOUR_OF_A_KIND);
+            return 0;
         }
         return this.calculateSumOfDices(roll);
     }
