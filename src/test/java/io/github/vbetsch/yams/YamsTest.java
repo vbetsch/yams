@@ -152,6 +152,15 @@ class YamsTest {
         assertEquals(18, result);
     }
 
+//    @Test
+//    void pair_throwIllegalArgumentException_whenGivenNotPair() {
+//        // Arrange
+//        Yams yams = new Yams();
+//
+//        // Act
+//        int result = yams.computeScore(List.of(6, 6, 6, 2, 3), CategoryEnum.SIXES);
+//    }
+
     @Test
     void pair_return4Points_whenGivenRollWithOnlyOnePair() {
         // Arrange
@@ -245,7 +254,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(1, 2, 3, 4), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
@@ -258,7 +267,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(1, 2, 3, 4, 5, 6), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
@@ -271,7 +280,7 @@ class YamsTest {
 
         // Act & Assert
         assertThrows(
-                InvalidRollSizeError.class,
+                IllegalArgumentException.class,
                 () -> yams.computeScore(List.of(), CategoryEnum.CHANCE),
                 "Roll must contain exactly 5 dices"
         );
