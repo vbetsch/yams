@@ -243,7 +243,7 @@ class YamsTest {
     }
 
     @Test
-    void two_pairs_returnPoints_whenGivenRollWithTwoPairs() {
+    void two_pairs_returnPoints_whenGivenRollWithTwoPairsOfThreeAndFour() {
         // Arrange
         Yams yams = new Yams();
 
@@ -252,6 +252,18 @@ class YamsTest {
 
         // Assert
         assertEquals(14, result);
+    }
+
+    @Test
+    void two_pairs_returnPoints_whenGivenRollWithTwoPairsOfFourAndFive() {
+        // Arrange
+        Yams yams = new Yams();
+
+        // Act
+        int result = yams.computeScore(List.of(4, 4, 5, 5, 1), CategoryEnum.TWO_PAIRS);
+
+        // Assert
+        assertEquals(18, result);
     }
 
     @Test
